@@ -14,5 +14,16 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('flowbite/plugin'),
+    function({ addUtilities }) {
+      const newUtilities = {
+        ".dramabese-text-shadow": {
+          textShadow: "1px 0 10px #fff"
+        },
+      };
+
+      addUtilities(newUtilities);
+    }
+  ],
 }
