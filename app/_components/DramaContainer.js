@@ -36,6 +36,7 @@ export default function DramaContainer() {
     const INQUIRY_FORM_MODAL_ID = "inquiry-modal"
     const DOCUMENT_REQUEST_STORY_ID = "3cd16be6-c4da-4d0d-9348-566da3ac1c53";
     const INQUIRY_FORM_STORY_ID = "b5eddcc4-15d5-4a43-9445-cc979b89d988";
+    const SERVICE_DRAMA_STORY_ID = "dc7a5c59-ca01-478c-8b28-98aa88f44609";
     const [showDocumentRequestModal, setShowDocumentRequestModal] = useState(false);
     const [showInquiryFormModal, setShowInquiryFormModal] = useState(false);
     /*
@@ -238,6 +239,10 @@ export default function DramaContainer() {
             // 問い合わせ
             if (currentStory.storyId === INQUIRY_FORM_STORY_ID){
                 setShowInquiryFormModal(true);
+            }
+            // サービス=>インタラクティブドラマ事業
+            if (currentStory.storyId === SERVICE_DRAMA_STORY_ID){
+                window.location.href = "https://www.dramabase.tokyo/";
             }
       } else {
           if (currentStory.selection) selectionRef.current.style.visibility = "visible";
