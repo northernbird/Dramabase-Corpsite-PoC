@@ -73,8 +73,9 @@ const MockDramaData = {
                 ],
                 backgroundFileName : "background.jpeg",
                 image: "bt_com2_develop.png",
-                userInteractionTimeInSec: null,
-                selection: null
+                userInteractionTimeInSec: 21,
+                selection: null,
+                custom: true
             },
             // アプリ・ゲーム事業
             {
