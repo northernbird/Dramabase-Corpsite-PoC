@@ -61,7 +61,7 @@ const MockDramaData = {
             "main_service_VP9.webm"
         ],
         backgroundFileName: "background.jpeg",
-        userInteractionTimeInSec: 1,
+        userInteractionTimeInSec: 26,
         selection: [
             // インタラクティブドラマ事業
             {
