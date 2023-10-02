@@ -11,6 +11,7 @@ const notoSansJp = Noto_Sans_JP({
 export default function RootLayout ({ children }) {
   return (
     <html lang="en">
+    <title>DramaBase株式会社</title>
     <body className={notoSansJp.className}>
     <Image
       src={BgBg}
