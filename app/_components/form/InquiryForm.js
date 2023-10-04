@@ -7,6 +7,7 @@ import {useForm} from "react-hook-form";
 
 /*
  * TODO: Consider to resolve code duplication with RequestForm
+ * TODO: Implement to persist form-data into storage (e.g. S3, DB etc..)
  */
 export default function InquiryForm({errorMessage, submittedMessage, onSubmitHandler}) {
     const {
