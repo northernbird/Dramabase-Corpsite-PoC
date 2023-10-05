@@ -5,6 +5,8 @@ import React, {cloneElement, useEffect, useState} from "react";
 export default function Modal({modalId, showModal, children}) {
 
     const [submitted, setSubmitted] = useState(false);
+    const [failedSubmit, setFailedSubmit] = useState(false);
+
     const errorMessage = <p className="block mb-1 text-xs text-red-400 tracking-widest">入力必須です</p>;
     const onSubmitHandler = async (request, e, type) => {
         const res = await fetch(`/api/${type}`, {
@@ -15,9 +17,7 @@ export default function Modal({modalId, showModal, children}) {
             body: JSON.stringify({request}),
         })
 
-        const json = await res.json();
-
-        console.log("Server Response : " + JSON.stringify(json));
+        setFailedSubmit((res.status !== 200));
 
         // reset after form submit
         e.target.reset();
@@ -32,13 +32,21 @@ export default function Modal({modalId, showModal, children}) {
         });
     };
     const submittedMessage = () => {
-        return (submitted) ? <p
-            className="mb-1 text-center text-sm text-red-400 tracking-widest">送信完了しました</p> : null;
+        if (submitted) {
+            let message = "送信完了しました。";
+            if (failedSubmit) {
+                message = "送信に失敗しました。";
+            }
+            return <p
+                className="mb-1 text-center text-sm text-red-400 tracking-widest">{message}</p>;
+        }
+        return null;
     }
 
     useEffect(() => {
         if (showModal) {
             setSubmitted(false);
+            setFailedSubmit(false);
         }
     }, [showModal])
 
